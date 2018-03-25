@@ -1,8 +1,11 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
+using RobinAnderson.FileSync.Core;
 using RobinAnderson.FileSync.Windows;
 
 namespace Robin.Anderson.FileSync.TestApp
@@ -17,7 +20,11 @@ namespace Robin.Anderson.FileSync.TestApp
 
             foreach (var file in dir.GetFiles())
             {
-                Console.WriteLine($"{file.Path} — {file.LastModifiedUtc}");
+                using (var hashProvider = new HashProvider(file.Open(), new SHA1CryptoServiceProvider()))
+                {
+                    var hash = BitConverter.ToString(hashProvider.Hash);
+                    Console.WriteLine($"{file.Path} — {file.LastModifiedUtc} ({hash})");
+                }
             }
 
             Console.ReadLine();

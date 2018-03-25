@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Dynamic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.IO;
 
 namespace RobinAnderson.FileSync.Interfaces
 {
@@ -12,18 +9,21 @@ namespace RobinAnderson.FileSync.Interfaces
         /// <summary>
         /// The path of the file from the synchronisation root directory.
         /// </summary>
-       string Path { get; }
+        string Path { get; }
 
         DateTime LastModifiedUtc { get; }
 
-        IHashMap HashMap { get; }
+        /// <summary>
+        /// Opens the file for reading.
+        /// </summary>
+        Stream Open();
     }
 
-    public interface IHashMap
+    public interface IHashProvider : IDisposable
     {
         byte[] Hash { get; }
 
-        IHashMap Slice(long offset, long length);
+        byte[] SliceHash(long offset, long length);
     }
 
 
@@ -41,11 +41,11 @@ namespace RobinAnderson.FileSync.Interfaces
 
     public interface ICrytoHasher
     {
-        
+
     }
 
     public interface IFileManifest
     {
-        
+
     }
 }

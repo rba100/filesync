@@ -53,6 +53,10 @@
       <Project>{5f02f261-b2ec-43ab-86da-300c486f8d3e}</Project>
       <Name>RobinAnderson.FileSync.Windows</Name>
     </ProjectReference>
+    <ProjectReference Include="..\RobinAnderson.FileSync.Core\RobinAnderson.FileSync.Core.csproj">
+      <Project>{CDD5B551-CAE6-480F-B264-2868542B3B4D}</Project>
+      <Name>RobinAnderson.FileSync.Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\RobinAnderson.FileSync.Interfaces\RobinAnderson.FileSync.Interfaces.csproj">
       <Project>{7e72a5d5-f15d-41cb-83a4-a6aa331ee3b4}</Project>
       <Name>RobinAnderson.FileSync.Interfaces</Name>
