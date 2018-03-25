@@ -4,15 +4,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{7E72A5D5-F15D-41CB-83A4-A6AA331EE3B4}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>RobinAnderson.FileSync.Interfaces</RootNamespace>
-    <AssemblyName>RobinAnderson.FileSync.Interfaces</AssemblyName>
+    <ProjectGuid>{843053A1-596D-4066-900D-2B2C935BD844}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>Robin.Anderson.FileSync.TestApp</RootNamespace>
+    <AssemblyName>Robin.Anderson.FileSync.TestApp</AssemblyName>
     <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -22,6 +23,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -40,9 +42,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FileSystemException.cs" />
-    <Compile Include="Interfaces.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\RobinAnderson.FileSync.Windows\RobinAnderson.FileSync.Windows.csproj">
+      <Project>{5f02f261-b2ec-43ab-86da-300c486f8d3e}</Project>
+      <Name>RobinAnderson.FileSync.Windows</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RobinAnderson.FileSync.Interfaces\RobinAnderson.FileSync.Interfaces.csproj">
+      <Project>{7e72a5d5-f15d-41cb-83a4-a6aa331ee3b4}</Project>
+      <Name>RobinAnderson.FileSync.Interfaces</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
