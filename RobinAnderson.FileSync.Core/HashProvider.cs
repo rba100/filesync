@@ -1,11 +1,12 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using System.Security.Cryptography;
 
 using RobinAnderson.FileSync.Interfaces;
 
 namespace RobinAnderson.FileSync.Core
 {
-    public class HashProvider : IHashProvider
+    public class HashProvider : IDisposable
     {
         private readonly Stream m_Stream;
         private readonly HashAlgorithm m_Hash;
@@ -32,12 +33,6 @@ namespace RobinAnderson.FileSync.Core
                 }
                 return m_HashCache;
             }
-        }
-
-        public byte[] SliceHash(long offset, long length)
-        {
-            m_Hash.Initialize();
-            m_Hash.ComputeHash()
         }
 
         public void Dispose()
