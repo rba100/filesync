@@ -15,13 +15,18 @@ namespace Robin.Anderson.FileSync.TestApp
     {
         static void Main(string[] args)
         {
-            IFileSystem winSys = new SystemIoFileSystem();
-           // var dir = winSys.GetFileSet(@"D:\Data");
-            var dir = winSys.GetFileSet(@"D:\nvidia");
-            var root = dir.Root;
+            try
+            {
+                IFileSystem winSys = new SystemIoFileSystem();
+                var dir = winSys.GetFileSet(@"D:\Data");
+                var root = dir.Root;
 
-            RecursiveNav(root);
-
+                RecursiveNav(root);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
             Console.ReadLine();
         }
 
